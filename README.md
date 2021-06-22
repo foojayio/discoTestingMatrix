@@ -47,6 +47,7 @@ Full JDK Updates of available history for SAP Machine Matrix status:
 EA JDK Matrix status:
 
 [![Java CI17](https://github.com/foojay2020/discoTestingMatrix/workflows/Java17_SAP_Machine/badge.svg)](https://github.com/foojay2020/discoTestingMatrix/actions)
+[![Java CI18](https://github.com/foojay2020/discoTestingMatrix/workflows/Java18_SAP_Machine/badge.svg)](https://github.com/foojay2020/discoTestingMatrix/actions)
 
 ---
 
