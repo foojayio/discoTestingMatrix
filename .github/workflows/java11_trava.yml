@@ -1,0 +1,41 @@
+name: Java11_Trava
+
+on:
+  push:
+    paths:
+      - '*/*/java11_trava.yml'
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '15 */3 * * *'
+jobs:
+  java11:
+    # internal comment counter: 100
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, macos-latest, windows-2016]
+        update: [x, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+        exclude:
+          - {os: ubuntu-18.04, update: 1}
+          - {os: ubuntu-18.04, update: 2}
+          - {os: ubuntu-18.04, update: 3}
+          - {os: macos-latest, update: 1}
+          - {os: macos-latest, update: 2}
+          - {os: macos-latest, update: 3}
+          - {os: windows-2016, update: 1}
+          - {os: windows-2016, update: 2}
+          - {os: windows-2016, update: 3}
+      fail-fast: false
+      max-parallel: 4
+    name: 11.0.${{ matrix.update }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up JDK 11 Trava     
+      uses: foojay2020/setup-java@discoTestingMatrix
+      with:
+        java-version: 11.0.${{ matrix.update }}
+        distro: trava
+    - name: java -version
+      run: java -version
+    

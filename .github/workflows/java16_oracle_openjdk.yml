@@ -1,0 +1,31 @@
+name: Java16_Oracle_OpenJDK
+
+on:
+  push:
+    paths:
+      - '*/*/java16_oracle_openjdk.yml'
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '5 */8 * * *'
+      
+jobs:
+  java16:
+    # internal comment counter: 103
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, macos-latest, windows-2016]
+        update: [16, 16.0.1, 16.0.0]
+      fail-fast: false
+      max-parallel: 4
+    name: JDK ${{ matrix.update }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up JDK 16 Oracle_OpenJDK
+      uses: foojay2020/setup-java@discoTestingMatrix
+      with:
+        java-version: ${{ matrix.update }}
+        distro: oracle_openjdk
+    - name: java -version
+      run: java -version

@@ -1,0 +1,31 @@
+name: Java10_Zulu
+
+on:
+  push:
+    paths:
+      - '*/*/java10_zulu.yml'
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '40 */24 * * *'
+
+jobs:
+  java10:
+    # internal comment counter: 100
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, macos-latest, windows-2016]
+        update: [x, 2, 1, 0]
+      fail-fast: false
+      max-parallel: 4
+    name: JDK 10.0.${{ matrix.update }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up JDK 10 Zulu
+      uses: foojay2020/setup-java@discoTestingMatrix
+      with:
+        java-version: 10.0.${{ matrix.update }}
+        distro: zulu
+    - name: java -version
+      run: java -version

@@ -1,0 +1,59 @@
+name: Java8_Corretto
+
+on:
+  push:
+    paths:
+      - '*/*/java8_corretto.yml'
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '45 */3 * * *'
+
+jobs:
+  java8-jdk:
+    # internal comment counter: 100
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, windows-2016, macos-latest]
+        update: [x, 282, 275, 272, 265, 262, 252, 242, 232, 222, 212, 202, 201, 192, 181, 172, 163, 162, 152, 144, 131, 121, 112, 102, 101, 92, 91, 72, 71]
+        exclude:
+          - {update: 71}
+          - {update: 72}
+          - {update: 91}
+          - {update: 92}
+          - {update: 101}
+          - {update: 102}
+          - {update: 112}
+          - {update: 121}
+          - {update: 131}
+          - {update: 144}
+          - {update: 152}
+          - {update: 162}
+          - {update: 163}
+          - {update: 172}
+          - {update: 181}
+          - {update: 192}
+          - {update: 201}
+          - {update: 202}
+          - {update: 212}
+          - {update: x}
+          - {os: ubuntu-18.04, update: 262}
+          - {os: ubuntu-18.04, update: 265}
+          - {os: ubuntu-18.04, update: 275}
+          - {os: ubuntu-18.04, update: 282}
+      fail-fast: false
+      max-parallel: 4
+    name: JDK 8.0.${{ matrix.update }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up JDK 8 Corretto     
+      uses: foojay2020/setup-java@discoTestingMatrix
+      with:
+        java-version: 8.0.${{ matrix.update }}
+        distro: corretto
+    - name: java -version
+      run: java -version
+      
+
+

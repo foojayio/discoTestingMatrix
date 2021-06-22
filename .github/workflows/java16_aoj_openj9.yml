@@ -1,0 +1,38 @@
+name: Java16_AOJ_OpenJ9
+
+on:
+  push:
+    paths:
+      - '*/*/java16_aoj_openj9.yml'
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '5 */8 * * *'
+      
+jobs:
+  java16:
+    # internal comment counter: 103
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, windows-2016, macos-latest]
+        update: [16, 16.0.0, 16.0.0-ea, 16.0.0-ea.5, 16-ea]
+        package: [jdk, jre]
+        exclude:
+          - {update: 16.0.0-ea}
+          - {update: 16.0.0-ea.5}
+          - {update: 16-ea}
+      fail-fast: false
+      max-parallel: 4
+    name: ${{ matrix.package }}, ${{ matrix.update }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up JDK 16 AOJ OpenJ9
+      uses: foojay2020/setup-java@discoTestingMatrix
+      with:
+        java-package: ${{ matrix.package }}
+        java-version: ${{ matrix.update }}
+        distro: aoj_openj9
+    - name: java -version
+      run: java -version
+

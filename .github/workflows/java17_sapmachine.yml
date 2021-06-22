@@ -1,0 +1,33 @@
+name: Java17_SAP_Machine
+
+on:
+  push:
+    paths:
+      - '*/*/java17_sapmachine.yml'
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '5 */8 * * *'
+      
+jobs:
+  java17:
+    # internal comment counter: 103
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, windows-2016, macos-latest]
+        update: [17.0.0-ea, 17.0.0-ea.2, 17-ea]
+        package: [jdk, jre]
+      fail-fast: false
+      max-parallel: 4
+    name: JDK ${{ matrix.update }}, ${{ matrix.package }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up JDK 17 SAP_Machine
+      uses: foojay2020/setup-java@discoTestingMatrix
+      with:
+        java-package: ${{ matrix.package }}
+        java-version: ${{ matrix.update }}
+        distro: sap_machine
+    - name: java -version
+      run: java -version

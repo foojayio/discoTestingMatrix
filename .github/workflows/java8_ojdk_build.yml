@@ -1,0 +1,83 @@
+name: Java8_OJDK_Build
+
+on:
+  push:
+    paths:
+      - '*/*/java8_ojdk_build.yml'
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '45 */3 * * *'
+
+jobs:
+  java8-jdk:
+    # internal comment counter: 100
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-2016]
+        update: [x, 282, 275, 272, 265, 262, 252, 242, 232, 222, 212, 202, 201, 192, 191, 181, 172, 171, 163, 162, 152, 144, 131, 121, 112, 102, 101, 92, 91, 72, 71]
+        exclude:
+          - {os: windows-2016, update: 71}
+          - {os: windows-2016, update: 72}
+          - {os: windows-2016, update: 91}
+          - {os: windows-2016, update: 92}
+          - {os: windows-2016, update: 101}
+          - {os: windows-2016, update: 102}
+          - {os: windows-2016, update: 112}
+          - {os: windows-2016, update: 121}
+          - {os: windows-2016, update: 131}
+          - {os: windows-2016, update: 144}
+          - {os: windows-2016, update: 152}
+          - {os: windows-2016, update: 162}
+          - {os: windows-2016, update: 163}
+          - {os: windows-2016, update: 171}
+          - {os: windows-2016, update: 172}
+          - {os: windows-2016, update: 181}
+          - {os: windows-2016, update: 191}
+          - {os: windows-2016, update: 192}
+          - {os: windows-2016, update: 201}
+          - {os: windows-2016, update: 212}
+          - {os: windows-2016, update: 222}
+          - {os: windows-2016, update: 232}
+          - {os: windows-2016, update: 242}
+      fail-fast: false
+      max-parallel: 4
+    name: JDK 8.0.${{ matrix.update }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up JDK 8 OJDK_Build     
+      uses: foojay2020/setup-java@discoTestingMatrix
+      with:
+        java-version: 8.0.${{ matrix.update }}
+        distro: ojdk_build
+    - name: java -version
+      run: java -version
+      
+  java8-jre:
+    # internal comment counter: 100
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-2016]
+        update: [x, 282, 275, 272, 265, 262, 252, 242, 232, 222, 212]
+        exclude:
+          - {os: windows-2016, update: 212}
+          - {os: windows-2016, update: 222}
+          - {os: windows-2016, update: 232}
+          - {os: windows-2016, update: 242}
+          - {os: windows-2016, update: 252}
+      fail-fast: false
+      max-parallel: 4
+    name: JRE 8.0.${{ matrix.update }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up JDK 8 OJDK_Build
+      uses: foojay2020/setup-java@discoTestingMatrix
+      with:
+        java-package: jre
+        java-version: 8.0.${{ matrix.update }}
+        distro: ojdk_build
+    - name: java -version
+      run: java -version

@@ -1,0 +1,38 @@
+name: Java13_Oracle_OpenJDK
+
+on:
+  push:
+    paths:
+      - '*/*/java13_oracle_openjdk.yml'
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '5 */3 * * *'
+      
+jobs:
+  java13:
+    # internal comment counter: 100
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, windows-2016, macos-latest]
+        update: [x, 6, 5, 4, 3, 2, 1, 0]
+        exclude:
+          - {update: 3}
+          - {update: 4}
+          - {update: 5}
+          - {update: 6}
+          - {update: 0}
+      fail-fast: false
+      max-parallel: 4
+    name: ${{ matrix.package }} 13.0.${{ matrix.update }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up ${{ matrix.package }} 13 Oracle_OpenJDK
+      uses: foojay2020/setup-java@discoTestingMatrix
+      with:
+        java-package: jdk
+        java-version: 13.0.${{ matrix.update }}
+        distro: oracle_openjdk
+    - name: java -version
+      run: java -version

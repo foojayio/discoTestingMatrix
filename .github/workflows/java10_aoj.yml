@@ -1,0 +1,38 @@
+name: Java10_AOJ
+
+on:
+  push:
+    paths:
+      - '*/*/java10_aoj.yml'
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '40 */24 * * *'
+
+jobs:
+  java10:
+    # internal comment counter: 100
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, windows-2016, macos-latest]
+        update: [2, 1, 0]
+        exclude:
+          - {os: windows-2016, update: 0}
+          - {os: windows-2016, update: 1}
+          - {os: ubuntu-18.04, update: 0}
+          - {os: ubuntu-18.04, update: 1}
+          - {os: macos-latest, update: 0}
+          - {os: macos-latest, update: 1}
+      fail-fast: false
+      max-parallel: 4
+    name: JDK 10.0.${{ matrix.update }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up JDK 10 AOJ
+      uses: foojay2020/setup-java@discoTestingMatrix
+      with:
+        java-version: 10.0.${{ matrix.update }}
+        distro: aoj
+    - name: java -version
+      run: java -version

@@ -1,0 +1,36 @@
+name: Java15_AOJ_OpenJ9
+
+on:
+  push:
+    paths:
+      - '*/*/java15_aoj_openj9.yml'
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '5 */3 * * *'
+      
+jobs:
+  java15:
+    # internal comment counter: 103
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, macos-latest, windows-2016]
+        update: [15, 15.0.2, 15.0.1, 15.0.0, 15-ea, 15.0.0-ea.2]
+        package: [jdk, jre]
+        exclude:
+          - {update: 15.0.0-ea.2, package: jre}
+          - {update: 15-ea, package: jre}
+      fail-fast: false
+      max-parallel: 4
+    name: ${{ matrix.package }} ${{ matrix.update }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up ${{ matrix.package }} 15 AOJ OpenJ9
+      uses: foojay2020/setup-java@discoTestingMatrix
+      with:
+        java-package: ${{ matrix.package }}
+        java-version: ${{ matrix.update }}
+        distro: aoj_openj9
+    - name: java -version
+      run: java -version

@@ -1,0 +1,37 @@
+name: Java12_SAP_Machine
+
+on:
+  push:
+    paths:
+      - '*/*/java12_sapmachine.yml'
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '32 */24 * * *'
+
+jobs:
+  java12:
+    # internal comment counter: 100
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, windows-2016]
+        package: [jdk, jre]
+        update: [x, 2, 1, 0]
+        exclude:
+          - {update: 0}
+          - {update: 1}
+          - {update: x}
+      fail-fast: false
+      max-parallel: 4
+    name: JDK 12.0.${{ matrix.update }}, ${{ matrix.package }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up JDK 12 SAP_Machine
+      uses: foojay2020/setup-java@discoTestingMatrix
+      with:
+        java-package: ${{ matrix.package }}
+        java-version: 12.0.${{ matrix.update }}
+        distro: sap_machine
+    - name: java -version
+      run: java -version

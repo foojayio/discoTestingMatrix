@@ -1,0 +1,117 @@
+name: Java8_Liberica
+
+on:
+  push:
+    paths:
+      - '*/*/java8_liberica.yml'
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '45 */3 * * *'
+
+jobs:
+  java8-jdk:
+    # internal comment counter: 100
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, windows-2016]
+        update: [x, 282, 275, 272, 265, 262, 252, 242, 232, 222, 212, 202, 192, 181, 172, 163, 162, 152, 144, 131, 121, 112, 102, 101, 92, 91, 72, 71]
+        exclude:
+          - {update: 71}
+          - {update: 72}
+          - {update: 91}
+          - {update: 92}
+          - {update: 101}
+          - {update: 102}
+          - {update: 112}
+          - {update: 121}
+          - {update: 131}
+          - {update: 144}
+          - {update: 152}
+          - {update: 162}
+          - {update: 163}
+          - {update: 172}
+          - {update: 181}
+      fail-fast: false
+      max-parallel: 4
+    name: JDK 8.0.${{ matrix.update }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up JDK 8 Liberica     
+      uses: foojay2020/setup-java@disco
+      with:
+        java-version: 8.0.${{ matrix.update }}
+        distro: liberica
+    - name: java -version
+      run: java -version
+      
+  java8-jdk-mac:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest]
+        update: [x, 282, 275, 272, 265, 262, 252, 242, 232, 222, 212, 202, 192, 181, 172, 163, 162, 152, 144, 131, 121, 112, 102, 92, 91, 72, 71, 66, 65, 60, 51, 45, 31, 25, 20, 11]
+        exclude:
+          - {update: 11}
+          - {update: 20}
+          - {update: 25}
+          - {update: 31}
+          - {update: 45}
+          - {update: 51}
+          - {update: 60}
+          - {update: 65}
+          - {update: 66}
+          - {update: 71}
+          - {update: 72}
+          - {update: 91}
+          - {update: 92}
+          - {update: 101}
+          - {update: 102}
+          - {update: 112}
+          - {update: 121}
+          - {update: 131}
+          - {update: 144}
+          - {update: 152}
+          - {update: 162}
+          - {update: 163}
+          - {update: 172}
+          - {update: 181}
+          - {update: 192}
+      fail-fast: false
+      max-parallel: 5
+    name: Mac-JDK 8.0.${{ matrix.update }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up JDK 8 Liberica
+      uses: foojay2020/setup-java@discoTestingMatrix
+      with:
+        java-version: 8.0.${{ matrix.update }}
+        distro: liberica
+    - name: java -version
+      run: java -version
+
+  java8-jre:
+    # internal comment counter: 100
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, windows-2016, macos-latest]
+        update: [x, 282, 275, 272, 265, 262, 252, 242, 232, 222, 212, 202, 192]
+        exclude:
+          - {update: 192}
+      fail-fast: false
+      max-parallel: 4
+    name: JRE 8.0.${{ matrix.update }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up JDK 8 Liberica
+      uses: foojay2020/setup-java@discoTestingMatrix
+      with:
+        java-package: jre
+        java-version: 8.0.${{ matrix.update }}
+        distro: liberica
+    - name: java -version
+      run: java -version

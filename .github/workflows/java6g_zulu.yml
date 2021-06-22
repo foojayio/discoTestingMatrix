@@ -1,0 +1,28 @@
+name: Java6g_Zulu
+
+on:
+  push:
+    paths:
+      - '*/*/java6g_zulu.yml'
+
+jobs:
+  java6:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, windows-2016]
+        update: [x, 77]
+      fail-fast: false
+      max-parallel: 4
+    name: JDK 6.0.${{ matrix.update }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up JDK 6 Zulu
+      uses: foojay2020/setup-java@discoTestingMatrix
+      with:
+        java-version: 6.0.${{ matrix.update }}
+        distro: zulu
+    - name: java -version
+      run: java -version
+      

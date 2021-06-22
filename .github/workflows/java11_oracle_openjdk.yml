@@ -1,0 +1,73 @@
+name: Java11_Oracle_OpenJDK
+
+on:
+  push:
+    paths:
+      - '*/*/java11_oracle_openjdk.yml'
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '15 */3 * * *'
+jobs:
+  java11:
+    # internal comment counter: 100
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, windows-2016, macos-latest]
+        update: [x, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+        package: [jdk, jre]
+        exclude:
+          - {update: 3}
+          - {os: ubuntu-18.04, update: 10, package: jdk}
+          - {os: ubuntu-18.04, update: 9, package: jdk}
+          - {os: ubuntu-18.04, update: 8, package: jdk}
+          - {os: ubuntu-18.04, update: 7, package: jdk}
+          - {os: ubuntu-18.04, update: 6, package: jdk}
+          - {os: ubuntu-18.04, update: 5, package: jdk}
+          - {os: ubuntu-18.04, update: 4, package: jdk}
+          - {os: ubuntu-18.04, update: 3, package: jdk}
+          - {os: ubuntu-18.04, update: 2, package: jre}
+          - {os: ubuntu-18.04, update: 1, package: jre}
+          - {os: windows-2016, update: 10, package: jdk}
+          - {os: windows-2016, update: 9, package: jdk}
+          - {os: windows-2016, update: 8, package: jdk}
+          - {os: windows-2016, update: 7, package: jdk}
+          - {os: windows-2016, update: 6, package: jdk}
+          - {os: windows-2016, update: 5, package: jdk}
+          - {os: windows-2016, update: 4, package: jdk}
+          - {os: windows-2016, update: 1, package: jre}
+          - {os: windows-2016, update: 2, package: jre}
+          - {os: macos-latest, update: 3, package: jdk}
+          - {os: macos-latest, update: 4, package: jdk}
+          - {os: macos-latest, update: 5, package: jdk}
+          - {os: macos-latest, update: 6, package: jdk}
+          - {os: macos-latest, update: 7, package: jdk}
+          - {os: macos-latest, update: 8, package: jdk}
+          - {os: macos-latest, update: 9, package: jdk}
+          - {os: macos-latest, update: 10, package: jdk}
+          - {os: macos-latest, update: x, package: jdk}
+          - {os: macos-latest, update: 1, package: jre}
+          - {os: macos-latest, update: 2, package: jre}
+          - {os: macos-latest, update: 3, package: jre}
+          - {os: macos-latest, update: 4, package: jre}
+          - {os: macos-latest, update: 5, package: jre}
+          - {os: macos-latest, update: 6, package: jre}
+          - {os: macos-latest, update: 7, package: jre}
+          - {os: macos-latest, update: 8, package: jre}
+          - {os: macos-latest, update: 9, package: jre}
+          - {os: macos-latest, update: 10, package: jre}
+          - {os: macos-latest, update: x, package: jre}
+      fail-fast: false
+      max-parallel: 4
+    name: ${{ matrix.package }} 11.0.${{ matrix.update }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up JDK 11 Oracle_OpenJDK
+      uses: foojay2020/setup-java@discoTestingMatrix
+      with:
+        java-package: ${{ matrix.package }}
+        java-version: 11.0.${{ matrix.update }}
+        distro: oracle_openjdk
+    - name: java -version
+      run: java -version

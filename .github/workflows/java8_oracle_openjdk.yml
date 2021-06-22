@@ -1,0 +1,32 @@
+name: Java8_Oracle_OpenJDK
+
+on:
+  push:
+    paths:
+      - '*/*/java8_oracle_openjdk.yml'
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '45 */3 * * *'
+
+jobs:
+  java8-jre:
+    # internal comment counter: 100
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, windows-2016]
+        update: [x, 282, 275, 272, 265, 262, 252, 242, 232, 222, 212]
+      fail-fast: false
+      max-parallel: 4
+    name: JRE 8.0.${{ matrix.update }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up JDK 8 Oracle_OpenJDK
+      uses: foojay2020/setup-java@discoTestingMatrix
+      with:
+        java-package: jre
+        java-version: 8.0.${{ matrix.update }}
+        distro: oracle_openjdk
+    - name: java -version
+      run: java -version

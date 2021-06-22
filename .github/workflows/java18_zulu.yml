@@ -1,0 +1,31 @@
+name: Java18_Zulu
+
+on:
+  push:
+    paths:
+      - '*/*/java18_zulu.yml'
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '5 */8 * * *'
+      
+jobs:
+  java18:
+    # internal comment counter: 103
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, macos-latest, windows-2016]
+        update: [18.0.0-ea, 18.0.0-ea.1, 18-ea]
+      fail-fast: false
+      max-parallel: 4
+    name: JDK ${{ matrix.update }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up JDK 18 Zulu
+      uses: foojay2020/setup-java@discoTestingMatrix
+      with:
+        java-version: ${{ matrix.update }}
+        distro: zulu
+    - name: java -version
+      run: java -version

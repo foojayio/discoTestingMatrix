@@ -1,0 +1,76 @@
+name: Java8_Zulu
+
+on:
+  push:
+    paths:
+      - '*/*/java8_zulu.yml'
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '45 */3 * * *'
+
+jobs:
+  java8-jdk:
+    # internal comment counter: 100
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, windows-2016]
+        update: [x, 282, 275, 272, 265, 262, 252, 242, 232, 222, 212, 202, 201, 192, 181, 172, 163, 162, 152, 144, 131, 121, 112, 102, 101, 92, 91, 72, 71]
+        exclude:
+          - os: ubuntu-18.04
+            update: 101
+      fail-fast: false
+      max-parallel: 4
+    name: JDK 8.0.${{ matrix.update }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up JDK 8 Zulu     
+      uses: foojay2020/setup-java@discoTestingMatrix
+      with:
+        java-version: 8.0.${{ matrix.update }}
+        distro: zulu
+    - name: java -version
+      run: java -version
+      
+  java8-jdk-mac:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest]
+        update: [x, 282, 275, 272, 265, 262, 252, 242, 232, 222, 212, 202, 201, 192, 181, 172, 163, 162, 152, 144, 131, 121, 112, 102, 92, 91, 72, 71, 66, 65, 60, 51, 45, 31, 25, 20, 11]
+      fail-fast: false
+      max-parallel: 4
+    name: Mac-JDK 8.0.${{ matrix.update }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up JDK 8 Zulu
+      uses: foojay2020/setup-java@discoTestingMatrix
+      with:
+        java-version: 8.0.${{ matrix.update }}
+        distro: zulu
+    - name: java -version
+      run: java -version
+
+  java8-jre:
+    # internal comment counter: 100
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, windows-2016, macos-latest]
+        update: [x, 282, 275, 272, 265, 262, 252, 242, 232, 222, 212]
+      fail-fast: false
+      max-parallel: 4
+    name: JRE 8.0.${{ matrix.update }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up JDK 8 Zulu
+      uses: foojay2020/setup-java@discoTestingMatrix
+      with:
+        java-package: jre
+        java-version: 8.0.${{ matrix.update }}
+        distro: zulu
+    - name: java -version
+      run: java -version

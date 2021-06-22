@@ -1,0 +1,38 @@
+name: Java9_AOJ_OpenJ9
+
+on:
+  push:
+    paths:
+      - '*/*/java9_aoj_openj9.yml'
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '35 */24 * * *'
+
+jobs:
+  java9:
+    # internal comment counter: 100
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, windows-2016]
+        update: [7, 4, 1, 0]
+        exclude:
+          - {os: ubuntu-18.04, update: 0}
+          - {os: ubuntu-18.04, update: 1}
+          - {os: ubuntu-18.04, update: 7}
+          - {os: windows-2016, update: 0}
+          - {os: windows-2016, update: 1}
+          - {os: windows-2016, update: 7}
+      fail-fast: false
+      max-parallel: 5
+    name: JDK 9.0.${{ matrix.update }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up JDK 9 AOJ OpenJ9
+      uses: foojay2020/setup-java@discoTestingMatrix
+      with:
+        java-version: 9.0.${{ matrix.update }}
+        distro: aoj_openj9
+    - name: java -version
+      run: java -version

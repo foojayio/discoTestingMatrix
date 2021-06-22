@@ -1,0 +1,50 @@
+name: Java11_AOJ_OpenJ9
+
+on:
+  push:
+    paths:
+      - '*/*/java11_aoj_openj9.yml'
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '15 */3 * * *'
+jobs:
+  java11:
+    # internal comment counter: 100
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, macos-latest, windows-2016]
+        update: [11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+        package: [jdk, jre]
+        exclude:
+          - {package: jre, update: 1}
+          - {package: jre, update: 2}
+          - {package: jre, update: 3}
+          - {package: jre, update: 4}
+          - {package: jre, update: 5}
+          - {package: jre, update: 6}
+          - {package: jre, update: x}
+          - {package: jdk, update: 1}
+          - {package: jdk, update: 2}
+          - {package: jdk, update: 3}
+          - {package: jdk, update: 4}
+          - {package: jdk, update: 5}
+          - {package: jdk, update: 6}
+          - {os: macos-latest, package: jre, update: 1}
+          - {os: macos-latest, package: jre, update: 2}
+          - {os: macos-latest, package: jdk, update: 1}
+          - {os: macos-latest, package: jdk, update: 2}
+      fail-fast: false
+      max-parallel: 4
+    name: ${{ matrix.package }} 11.0.${{ matrix.update }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up JDK 11 AOJ OpenJ9
+      uses: foojay2020/setup-java@discoTestingMatrix
+      with:
+        java-package: ${{ matrix.package }}
+        java-version: 11.0.${{ matrix.update }}
+        distro: aoj_openj9
+    - name: java -version
+      run: java -version

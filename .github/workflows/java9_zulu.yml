@@ -1,0 +1,31 @@
+name: Java9_Zulu
+
+on:
+  push:
+    paths:
+      - '*/*/java9_zulu.yml'
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '35 */24 * * *'
+
+jobs:
+  java9:
+    # internal comment counter: 100
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, macos-latest, windows-2016]
+        update: [x, 7, 4, 1, 0]
+      fail-fast: false
+      max-parallel: 5
+    name: JDK 9.0.${{ matrix.update }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up JDK 9 Zulu
+      uses: foojay2020/setup-java@discoTestingMatrix
+      with:
+        java-version: 9.0.${{ matrix.update }}
+        distro: zulu
+    - name: java -version
+      run: java -version

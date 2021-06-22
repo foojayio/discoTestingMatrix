@@ -1,0 +1,34 @@
+name: Java11_OpenLogic
+
+on:
+  push:
+    paths:
+      - '*/*/java11_openlogic.yml'
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '15 */3 * * *'
+jobs:
+  java11:
+    # internal comment counter: 100
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, macos-latest, windows-2016]
+        update: [10, 9, 8]
+        exclude:
+          - {os: macos-latest}
+        package: [jdk]
+      fail-fast: false
+      max-parallel: 4
+    name: ${{ matrix.package }} 11.0.${{ matrix.update }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up JDK 11 OpenLogic
+      uses: foojay2020/setup-java@discoTestingMatrix
+      with:
+        java-package: ${{ matrix.package }}
+        java-version: 11.0.${{ matrix.update }}
+        distro: openlogic
+    - name: java -version
+      run: java -version

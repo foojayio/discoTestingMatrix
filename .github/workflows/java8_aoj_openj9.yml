@@ -1,0 +1,118 @@
+name: Java8_AOJ_OpenJ9
+
+on:
+  push:
+    paths:
+      - '*/*/java8_aoj_openj9.yml'
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '45 */3 * * *'
+
+jobs:
+  java8-jdk:
+    # internal comment counter: 100
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, windows-2016]
+        update: [282, 275, 272, 265, 262, 252, 242, 232, 222, 212, 202, 201, 192, 181, 172, 163, 162, 152, 144, 131, 121, 112, 102, 101, 92, 91, 72, 71]
+        exclude:
+          - {os: ubuntu-18.04, update: 71}
+          - {os: ubuntu-18.04, update: 72}
+          - {os: ubuntu-18.04, update: 91}
+          - {os: ubuntu-18.04, update: 92}
+          - {os: ubuntu-18.04, update: 101}
+          - {os: ubuntu-18.04, update: 102}
+          - {os: ubuntu-18.04, update: 112}
+          - {os: ubuntu-18.04, update: 121}
+          - {os: ubuntu-18.04, update: 131}
+          - {os: ubuntu-18.04, update: 144}
+          - {os: ubuntu-18.04, update: 152}
+          - {os: ubuntu-18.04, update: 162}
+          - {os: ubuntu-18.04, update: 163}
+          - {os: ubuntu-18.04, update: 172}
+          - {os: ubuntu-18.04, update: 181}
+          - {os: ubuntu-18.04, update: 192}
+          - {os: ubuntu-18.04, update: 201}
+          - {os: ubuntu-18.04, update: 202}
+          - {os: ubuntu-18.04, update: 212}
+          - {os: windows-2016, update: 71}
+          - {os: windows-2016, update: 72}
+          - {os: windows-2016, update: 91}
+          - {os: windows-2016, update: 92}
+          - {os: windows-2016, update: 101}
+          - {os: windows-2016, update: 102}
+          - {os: windows-2016, update: 112}
+          - {os: windows-2016, update: 121}
+          - {os: windows-2016, update: 131}
+          - {os: windows-2016, update: 144}
+          - {os: windows-2016, update: 152}
+          - {os: windows-2016, update: 162}
+          - {os: windows-2016, update: 163}
+          - {os: windows-2016, update: 172}
+          - {os: windows-2016, update: 181}
+          - {os: windows-2016, update: 192}
+          - {os: windows-2016, update: 201}
+          - {os: windows-2016, update: 202}
+          - {os: windows-2016, update: 212}
+          - {os: windows-2016, update: 222}
+          - {os: windows-2016, update: 232}   
+      fail-fast: false
+      max-parallel: 4
+    name: JDK 8.0.${{ matrix.update }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up JDK 8 AOJ OpenJ9    
+      uses: foojay2020/setup-java@discoTestingMatrix
+      with:
+        java-version: 8.0.${{ matrix.update }}
+        distro: aoj_openj9
+    - name: java -version
+      run: java -version
+      
+  java8-jdk-mac:
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        update: [282, 275, 272, 265, 262, 252, 242, 232, 222, 212, 202, 201, 192, 181, 172, 163, 162, 152, 144, 131, 121, 112, 102, 92, 91, 72, 71, 66, 65, 60, 51, 45, 31, 25, 20, 11]
+        exclude: 
+          - {update: 11}
+          - {update: 20}
+          - {update: 25}
+          - {update: 31}
+          - {update: 45}
+          - {update: 51}
+          - {update: 60}
+          - {update: 65}
+          - {update: 66}
+          - {update: 71}
+          - {update: 72}
+          - {update: 91}
+          - {update: 92}
+          - {update: 102}
+          - {update: 112}
+          - {update: 121}
+          - {update: 131}
+          - {update: 144}
+          - {update: 152}
+          - {update: 162}
+          - {update: 163}
+          - {update: 172}
+          - {update: 181}
+          - {update: 192}
+          - {update: 201}
+      fail-fast: false
+      max-parallel: 4
+    name: Mac-JDK 8.0.${{ matrix.update }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up JDK 8 AOJ OpenJ9
+      uses: foojay2020/setup-java@discoTestingMatrix
+      with:
+        java-version: 8.0.${{ matrix.update }}
+        distro: aoj_openj9
+    - name: java -version
+      run: java -version
+

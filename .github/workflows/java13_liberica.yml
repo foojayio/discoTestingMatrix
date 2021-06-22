@@ -1,0 +1,40 @@
+name: Java13_Liberica
+
+on:
+  push:
+    paths:
+      - '*/*/java13_liberica.yml'
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '5 */3 * * *'
+      
+jobs:
+  java13:
+    # internal comment counter: 100
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, macos-latest, windows-2016]
+        update: [x, 6, 5, 4, 3, 2, 1, 0]
+        package: [jdk, jre]
+        exclude:
+          - {package: jre, update: 0}
+          - {update: 3}
+          - {update: 4}
+          - {update: 5}
+          - {update: 6}
+          - {update: x}
+      fail-fast: false
+      max-parallel: 4
+    name: ${{ matrix.package }} 13.0.${{ matrix.update }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up ${{ matrix.package }} 13 Liberica
+      uses: foojay2020/setup-java@discoTestingMatrix
+      with:
+        java-package: ${{ matrix.package }}
+        java-version: 13.0.${{ matrix.update }}
+        distro: liberica
+    - name: java -version
+      run: java -version
