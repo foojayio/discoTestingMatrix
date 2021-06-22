@@ -47,7 +47,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Set up JDK 8 Trava     
-      uses: foojay2020/setup-java@disco
+      uses: foojay2020/setup-java@discoTestingMatrix
       with:
         java-version: 8.0.${{ matrix.update }}
         distro: trava
