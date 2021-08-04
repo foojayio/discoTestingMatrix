@@ -26,7 +26,7 @@ jobs:
       uses: foojay2020/setup-java@discoTestingMatrix
       with:
         java-package: ${{ matrix.package }}
-        java-version: 11.0.${{ matrix.update }}-ea
+        java-version: 11.0.${{ matrix.update }}
         distro: microsoft
     - name: java -version
       run: java -version
