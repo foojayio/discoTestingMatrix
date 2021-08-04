@@ -33,6 +33,15 @@ Full JDK Updates of available history for Trava Matrix status:
 [![Java CI11](https://github.com/foojay2020/discoTestingMatrix/workflows/Java11_Trava/badge.svg)](https://github.com/foojay2020/discoTestingMatrix/actions)
 
 ---
+
+## Temurin
+Full JDK Updates of available history for Temurin Matrix status:
+
+[![Java CI8](https://github.com/foojay2020/discoTestingMatrix/workflows/Java8_Temurin/badge.svg)](https://github.com/foojay2020/discoTestingMatrix/actions)
+[![Java CI11](https://github.com/foojay2020/discoTestingMatrix/workflows/Java11_Temurin/badge.svg)](https://github.com/foojay2020/discoTestingMatrix/actions)
+[![Java CI16](https://github.com/foojay2020/discoTestingMatrix/workflows/Java16_Temurin/badge.svg)](https://github.com/foojay2020/discoTestingMatrix/actions)
+
+---
 ## SAP Machine 
 Full JDK Updates of available history for SAP Machine Matrix status:
 
