@@ -13,7 +13,7 @@ jobs:
     runs-on: windows-2016
     strategy:
       matrix:
-        update: [x, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+        update: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
         package: [jdk, jre]
         exclude:
           - {package: jdk, update: 0}
