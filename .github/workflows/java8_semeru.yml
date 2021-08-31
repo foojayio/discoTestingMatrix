@@ -16,6 +16,8 @@ jobs:
       matrix:
         os: [ubuntu-18.04, windows-2016, macos-latest]
         update: [302]
+        exclude:
+          - {os: macos-latest, update: 302}
       fail-fast: false
       max-parallel: 4
     name: 8.0.${{ matrix.update }}, ${{ matrix.os }}
