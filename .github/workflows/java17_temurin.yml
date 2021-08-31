@@ -1,0 +1,31 @@
+name: Java17_Temurin
+
+on:
+  push:
+    paths:
+      - '*/*/java17_temurin.yml'
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '5 */8 * * *'
+      
+jobs:
+  java17:
+    # internal comment counter: 103
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, macos-latest, windows-2016]
+        update: [17-ea]
+      fail-fast: false
+      max-parallel: 4
+    name: JDK ${{ matrix.update }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up JDK 17 Temurin
+      uses: foojay2020/setup-java@discoTestingMatrix
+      with:
+        java-version: ${{ matrix.update }}
+        distro: temurin
+    - name: java -version
+      run: java -version
