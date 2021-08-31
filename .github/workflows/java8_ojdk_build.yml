@@ -36,6 +36,7 @@ jobs:
           - {os: windows-2016, update: 191}
           - {os: windows-2016, update: 192}
           - {os: windows-2016, update: 201}
+          - {os: windows-2016, update: 202}
           - {os: windows-2016, update: 212}
           - {os: windows-2016, update: 222}
           - {os: windows-2016, update: 232}

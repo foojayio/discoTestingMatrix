@@ -45,6 +45,8 @@ jobs:
           - {os: macos-latest, update: 8, package: jdk}
           - {os: macos-latest, update: 9, package: jdk}
           - {os: macos-latest, update: 10, package: jdk}
+          - {os: macos-latest, update: 11, package: jdk}
+          - {os: macos-latest, update: 12, package: jdk}
           - {os: macos-latest, update: x, package: jdk}
           - {os: macos-latest, update: 1, package: jre}
           - {os: macos-latest, update: 2, package: jre}
@@ -56,6 +58,8 @@ jobs:
           - {os: macos-latest, update: 8, package: jre}
           - {os: macos-latest, update: 9, package: jre}
           - {os: macos-latest, update: 10, package: jre}
+          - {os: macos-latest, update: 11, package: jre}
+          - {os: macos-latest, update: 12, package: jre}
           - {os: macos-latest, update: x, package: jre}
       fail-fast: false
       max-parallel: 4
