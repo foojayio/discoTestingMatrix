@@ -38,7 +38,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Set up JDK 11 SAP_Machine
-      uses: foojay2020/setup-java@discoTestingMatrix
+      uses: foojayio/setup-java@discoTestingMatrix
       with:
         java-package: ${{ matrix.package }}
         java-version: 11.0.${{ matrix.update }}

@@ -28,7 +28,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Set up JDK 16 AOJ OpenJ9
-      uses: foojay2020/setup-java@discoTestingMatrix
+      uses: foojayio/setup-java@discoTestingMatrix
       with:
         java-package: ${{ matrix.package }}
         java-version: ${{ matrix.update }}

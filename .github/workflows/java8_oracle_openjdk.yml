@@ -23,7 +23,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Set up JDK 8 Oracle_OpenJDK
-      uses: foojay2020/setup-java@discoTestingMatrix
+      uses: foojayio/setup-java@discoTestingMatrix
       with:
         java-package: jre
         java-version: 8.0.${{ matrix.update }}
