@@ -90,6 +90,13 @@ EA JDK Matrix status:
 
 ---
 
+## Oracle 
+Full JDK Updates of available history for Oracle Matrix status:
+
+[![Java CI17](https://github.com/foojayio/discoTestingMatrix/workflows/Java17_Oracle/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+
+---
+
 ## OpenLogic
 Full JDK Updates of available history for OpenLogic Matrix status:
 
