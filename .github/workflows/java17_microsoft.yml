@@ -1,9 +1,9 @@
-name: Java16_Microsoft
+name: Java17_Microsoft
 
 on:
   push:
     paths:
-      - '*/*/java16_microsoft.yml'
+      - '*/*/java17_microsoft.yml'
   schedule:
     # * is a special character in YAML so you have to quote this string
     - cron:  '5 */8 * * *'
@@ -15,14 +15,14 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-18.04, windows-2016, macos-latest]
-        update: [16.0.2]
+        update: [17]
       fail-fast: false
       max-parallel: 4
     name: ${{ matrix.update }}, ${{ matrix.os }}
 
     steps:
     - uses: actions/checkout@v1
-    - name: Set up JDK 16 Microsoft
+    - name: Set up JDK 17 Microsoft
       uses: foojayio/setup-java@discoTestingMatrix
       with:
         java-package: jdk

@@ -118,6 +118,7 @@ Full JDK Updates of available history for Microsoft Matrix status:
 
 [![Java CI11](https://github.com/foojayio/discoTestingMatrix/workflows/Java11_Microsoft/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 [![Java CI16](https://github.com/foojayio/discoTestingMatrix/workflows/Java16_Microsoft/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+[![Java CI17](https://github.com/foojayio/discoTestingMatrix/workflows/Java17_Microsoft/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 
 ---
 
