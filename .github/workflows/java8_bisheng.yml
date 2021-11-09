@@ -1,0 +1,32 @@
+name: Java8_Bisheng
+
+on:
+  push:
+    paths:
+      - '*/*/java8_bisheng.yml'
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '15 */3 * * *'
+
+jobs:
+  java11:
+    # internal comment counter: 100
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04]
+        update: [302]
+      fail-fast: false
+      max-parallel: 4
+    name: 8.0.${{ matrix.update }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up JDK 8 Bisheng
+      uses: foojayio/setup-java@discoTestingMatrix
+      with:
+        java-package: jdk
+        java-version: 8.0.${{ matrix.update }}
+        distro: bisheng
+    - name: java -version
+      run: java -version

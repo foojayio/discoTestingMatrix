@@ -137,6 +137,14 @@ Full JDK Updates of available history for Liberica Matrix status:
 
 ---
 
+## Kona
+Full JDK Updates of available history for Kona Matrix status:
+
+[![Java CI8](https://github.com/foojayio/discoTestingMatrix/workflows/Java8_Kona/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+[![Java CI11](https://github.com/foojayio/discoTestingMatrix/workflows/Java11_Kona/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+
+---
+
 ## Dragonwell
 Full JDK Updates of available history for Dragonwell Matrix status:
 
@@ -153,6 +161,14 @@ Full JDK Updates of available history for Corretto Matrix status:
 [![Java CI15](https://github.com/foojayio/discoTestingMatrix/workflows/Java15_Corretto/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 [![Java CI16](https://github.com/foojayio/discoTestingMatrix/workflows/Java16_Corretto/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 [![Java CI17](https://github.com/foojayio/discoTestingMatrix/workflows/Java17_Corretto/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+
+---
+
+## Bisheng
+Full JDK Updates of available history for Bisheng Matrix status:
+
+[![Java CI8](https://github.com/foojayio/discoTestingMatrix/workflows/Java8_Bisheng/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+[![Java CI11](https://github.com/foojayio/discoTestingMatrix/workflows/Java11_Bisheng/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 
 ---
 
