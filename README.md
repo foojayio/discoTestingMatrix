@@ -53,6 +53,14 @@ Full JDK Updates of available history for Semeru Matrix status:
 
 ---
 
+## Semeru Certified
+Full JDK Updates of available history for Semeru Certified Matrix status:
+
+[![Java CI11](https://github.com/foojayio/discoTestingMatrix/workflows/Java11_SemeruCertified/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+
+---
+
+
 ## SAP Machine 
 Full JDK Updates of available history for SAP Machine Matrix status:
 
