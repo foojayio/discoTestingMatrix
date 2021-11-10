@@ -14,7 +14,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-18.04, windows-2016]
+        os: [ubuntu-latest, windows-latest]
         update: [x, 282, 275, 272, 265, 262, 252, 242, 232, 222, 212, 202, 192, 181, 172, 163, 162, 152, 144, 131, 121, 112, 102, 101, 92, 91, 72, 71]
         exclude:
           - {update: 71}
@@ -97,7 +97,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-18.04, windows-2016, macos-latest]
+        os: [ubuntu-latest, windows-latest, macos-latest]
         update: [x, 282, 275, 272, 265, 262, 252, 242, 232, 222, 212, 202, 192]
         exclude:
           - {update: 192}

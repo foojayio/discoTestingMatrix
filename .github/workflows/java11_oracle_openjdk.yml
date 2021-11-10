@@ -13,30 +13,30 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-18.04, windows-2016, macos-latest]
+        os: [ubuntu-latest, windows-latest, macos-latest]
         update: [x, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
         package: [jdk, jre]
         exclude:
           - {update: 3}
-          - {os: ubuntu-18.04, update: 10, package: jdk}
-          - {os: ubuntu-18.04, update: 9, package: jdk}
-          - {os: ubuntu-18.04, update: 8, package: jdk}
-          - {os: ubuntu-18.04, update: 7, package: jdk}
-          - {os: ubuntu-18.04, update: 6, package: jdk}
-          - {os: ubuntu-18.04, update: 5, package: jdk}
-          - {os: ubuntu-18.04, update: 4, package: jdk}
-          - {os: ubuntu-18.04, update: 3, package: jdk}
-          - {os: ubuntu-18.04, update: 2, package: jre}
-          - {os: ubuntu-18.04, update: 1, package: jre}
-          - {os: windows-2016, update: 10, package: jdk}
-          - {os: windows-2016, update: 9, package: jdk}
-          - {os: windows-2016, update: 8, package: jdk}
-          - {os: windows-2016, update: 7, package: jdk}
-          - {os: windows-2016, update: 6, package: jdk}
-          - {os: windows-2016, update: 5, package: jdk}
-          - {os: windows-2016, update: 4, package: jdk}
-          - {os: windows-2016, update: 1, package: jre}
-          - {os: windows-2016, update: 2, package: jre}
+          - {os: ubuntu-latest, update: 10, package: jdk}
+          - {os: ubuntu-latest, update: 9, package: jdk}
+          - {os: ubuntu-latest, update: 8, package: jdk}
+          - {os: ubuntu-latest, update: 7, package: jdk}
+          - {os: ubuntu-latest, update: 6, package: jdk}
+          - {os: ubuntu-latest, update: 5, package: jdk}
+          - {os: ubuntu-latest, update: 4, package: jdk}
+          - {os: ubuntu-latest, update: 3, package: jdk}
+          - {os: ubuntu-latest, update: 2, package: jre}
+          - {os: ubuntu-latest, update: 1, package: jre}
+          - {os: windows-latest, update: 10, package: jdk}
+          - {os: windows-latest, update: 9, package: jdk}
+          - {os: windows-latest, update: 8, package: jdk}
+          - {os: windows-latest, update: 7, package: jdk}
+          - {os: windows-latest, update: 6, package: jdk}
+          - {os: windows-latest, update: 5, package: jdk}
+          - {os: windows-latest, update: 4, package: jdk}
+          - {os: windows-latest, update: 1, package: jre}
+          - {os: windows-latest, update: 2, package: jre}
           - {os: macos-latest, update: 3, package: jdk}
           - {os: macos-latest, update: 4, package: jdk}
           - {os: macos-latest, update: 5, package: jdk}

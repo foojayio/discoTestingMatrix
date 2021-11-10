@@ -14,15 +14,15 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-18.04, windows-2016]
+        os: [ubuntu-latest, windows-latest]
         update: [7, 4, 1, 0]
         exclude:
-          - {os: ubuntu-18.04, update: 0}
-          - {os: ubuntu-18.04, update: 1}
-          - {os: ubuntu-18.04, update: 7}
-          - {os: windows-2016, update: 0}
-          - {os: windows-2016, update: 1}
-          - {os: windows-2016, update: 7}
+          - {os: ubuntu-latest, update: 0}
+          - {os: ubuntu-latest, update: 1}
+          - {os: ubuntu-latest, update: 7}
+          - {os: windows-latest, update: 0}
+          - {os: windows-latest, update: 1}
+          - {os: windows-latest, update: 7}
       fail-fast: false
       max-parallel: 5
     name: JDK 9.0.${{ matrix.update }}, ${{ matrix.os }}

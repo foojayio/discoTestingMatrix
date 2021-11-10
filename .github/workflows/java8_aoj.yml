@@ -14,46 +14,46 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-18.04, windows-2016]
+        os: [ubuntu-latest, windows-latest]
         update: [282, 275, 272, 265, 262, 252, 242, 232, 222, 212, 202, 201, 192, 181, 172, 163, 162, 152, 144, 131, 121, 112, 102, 101, 92, 91, 72, 71]
         exclude:
-          - {os: ubuntu-18.04, update: 71}
-          - {os: ubuntu-18.04, update: 72}
-          - {os: ubuntu-18.04, update: 91}
-          - {os: ubuntu-18.04, update: 92}          
-          - {os: ubuntu-18.04, update: 101}
-          - {os: ubuntu-18.04, update: 102}
-          - {os: ubuntu-18.04, update: 112}
-          - {os: ubuntu-18.04, update: 121}
-          - {os: ubuntu-18.04, update: 131}
-          - {os: ubuntu-18.04, update: 144}
-          - {os: ubuntu-18.04, update: 152}
-          - {os: ubuntu-18.04, update: 162}
-          - {os: ubuntu-18.04, update: 163}
-          - {os: ubuntu-18.04, update: 172}
-          - {os: ubuntu-18.04, update: 181}
-          - {os: ubuntu-18.04, update: 192}
-          - {os: ubuntu-18.04, update: 201}
-          - {os: ubuntu-18.04, update: 202}
-          - {os: windows-2016, update: 71}
-          - {os: windows-2016, update: 72}
-          - {os: windows-2016, update: 91}
-          - {os: windows-2016, update: 92}
-          - {os: windows-2016, update: 101}
-          - {os: windows-2016, update: 102}
-          - {os: windows-2016, update: 112}
-          - {os: windows-2016, update: 121}
-          - {os: windows-2016, update: 131}
-          - {os: windows-2016, update: 144}
-          - {os: windows-2016, update: 152}
-          - {os: windows-2016, update: 162}
-          - {os: windows-2016, update: 163}
-          - {os: windows-2016, update: 172}
-          - {os: windows-2016, update: 181}
-          - {os: windows-2016, update: 192}
-          - {os: windows-2016, update: 201}
-          - {os: windows-2016, update: 202}
-          - {os: windows-2016, update: 212}   
+          - {os: ubuntu-latest, update: 71}
+          - {os: ubuntu-latest, update: 72}
+          - {os: ubuntu-latest, update: 91}
+          - {os: ubuntu-latest, update: 92}          
+          - {os: ubuntu-latest, update: 101}
+          - {os: ubuntu-latest, update: 102}
+          - {os: ubuntu-latest, update: 112}
+          - {os: ubuntu-latest, update: 121}
+          - {os: ubuntu-latest, update: 131}
+          - {os: ubuntu-latest, update: 144}
+          - {os: ubuntu-latest, update: 152}
+          - {os: ubuntu-latest, update: 162}
+          - {os: ubuntu-latest, update: 163}
+          - {os: ubuntu-latest, update: 172}
+          - {os: ubuntu-latest, update: 181}
+          - {os: ubuntu-latest, update: 192}
+          - {os: ubuntu-latest, update: 201}
+          - {os: ubuntu-latest, update: 202}
+          - {os: windows-latest, update: 71}
+          - {os: windows-latest, update: 72}
+          - {os: windows-latest, update: 91}
+          - {os: windows-latest, update: 92}
+          - {os: windows-latest, update: 101}
+          - {os: windows-latest, update: 102}
+          - {os: windows-latest, update: 112}
+          - {os: windows-latest, update: 121}
+          - {os: windows-latest, update: 131}
+          - {os: windows-latest, update: 144}
+          - {os: windows-latest, update: 152}
+          - {os: windows-latest, update: 162}
+          - {os: windows-latest, update: 163}
+          - {os: windows-latest, update: 172}
+          - {os: windows-latest, update: 181}
+          - {os: windows-latest, update: 192}
+          - {os: windows-latest, update: 201}
+          - {os: windows-latest, update: 202}
+          - {os: windows-latest, update: 212}   
       fail-fast: false
       max-parallel: 4
     name: JDK 8.0.${{ matrix.update }}, ${{ matrix.os }}

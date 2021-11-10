@@ -13,23 +13,23 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-18.04, macos-latest, windows-2016]
+        os: [ubuntu-latest, macos-latest, windows-latest]
         update: [11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
         package: [jdk, jre]
         exclude:
-          - {os: windows-2016, package: jre, update: 1}
-          - {os: windows-2016, package: jre, update: 2}
-          - {os: windows-2016, package: jre, update: 3}
-          - {os: windows-2016, package: jre, update: 4}
+          - {os: windows-latest, package: jre, update: 1}
+          - {os: windows-latest, package: jre, update: 2}
+          - {os: windows-latest, package: jre, update: 3}
+          - {os: windows-latest, package: jre, update: 4}
           - {os: macos-latest, package: jre, update: 1}
-          - {os: ubuntu-18.04, package: jre, update: 1}
-          - {os: ubuntu-18.04, package: jre, update: 2}
-          - {os: windows-2016, package: jdk, update: 1}
-          - {os: windows-2016, package: jdk, update: 2}
-          - {os: windows-2016, package: jdk, update: 3}
-          - {os: windows-2016, package: jdk, update: 4}
-          - {os: ubuntu-18.04, package: jdk, update: 1}
-          - {os: ubuntu-18.04, package: jdk, update: 2}
+          - {os: ubuntu-latest, package: jre, update: 1}
+          - {os: ubuntu-latest, package: jre, update: 2}
+          - {os: windows-latest, package: jdk, update: 1}
+          - {os: windows-latest, package: jdk, update: 2}
+          - {os: windows-latest, package: jdk, update: 3}
+          - {os: windows-latest, package: jdk, update: 4}
+          - {os: ubuntu-latest, package: jdk, update: 1}
+          - {os: ubuntu-latest, package: jdk, update: 2}
       fail-fast: false
       max-parallel: 4
     name: ${{ matrix.package }} 11.0.${{ matrix.update }}, ${{ matrix.os }}
