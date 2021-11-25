@@ -1,32 +1,32 @@
-name: Java17_Oracle_OpenJDK
+name: Java8_Zulu_Prime
 
 on:
   push:
     paths:
-      - '*/*/java17_oracle_openjdk.yml'
+      - '*/*/java8_zulu_prime.yml'
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '5 */8 * * *' 
+    - cron:  '15 */3 * * *'
 jobs:
-  java17:
-    # internal comment counter: 103
+  java11:
+    # internal comment counter: 100
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-        update: [1, 0]
+        os: [ubuntu-latest]
+        update: [x, 302, 292]
         package: [jdk]
       fail-fast: false
       max-parallel: 4
-    name: ${{ matrix.package }} 17.0.${{ matrix.update }}, ${{ matrix.os }}
+    name: ${{ matrix.package }} 8.0.${{ matrix.update }}, ${{ matrix.os }}
 
     steps:
     - uses: actions/checkout@v1
-    - name: Set up ${{ matrix.package }} 17 Oracle_OpenJDK
+    - name: Set up JDK 8 Zulu Prime
       uses: foojayio/setup-java@discoTestingMatrix
       with:
         java-package: ${{ matrix.package }}
-        java-version: 17.0.${{ matrix.update }}
-        distro: oracle_openjdk
+        java-version: 8.0.${{ matrix.update }}
+        distro: zulu_prime
     - name: java -version
       run: java -version

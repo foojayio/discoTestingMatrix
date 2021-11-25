@@ -6,8 +6,7 @@ on:
       - '*/*/java17_oracle.yml'
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '5 */8 * * *'
-      
+    - cron:  '5 */8 * * *'  
 jobs:
   java17:
     # internal comment counter: 103
@@ -15,17 +14,19 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        update: [17]
+        update: [1, 0]
+        package: [jdk]
       fail-fast: false
       max-parallel: 4
-    name: JDK ${{ matrix.update }}, ${{ matrix.os }}
+    name: ${{ matrix.package }} 17.0.${{ matrix.update }}, ${{ matrix.os }}
 
     steps:
     - uses: actions/checkout@v1
-    - name: Set up JDK 17 Oracle
+    - name: Set up ${{ matrix.package }} 17 Oracle
       uses: foojayio/setup-java@discoTestingMatrix
       with:
-        java-version: ${{ matrix.update }}
+        java-package: ${{ matrix.package }}
+        java-version: 17.0.${{ matrix.update }}
         distro: oracle
     - name: java -version
       run: java -version

@@ -14,7 +14,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        update: [x, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+        update: [x, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
         package: [jdk, jre]
         exclude:
           - {package: jre, update: 1}

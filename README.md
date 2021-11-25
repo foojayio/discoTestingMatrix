@@ -4,6 +4,16 @@ Used to verify jdk tests on various distros and versions using Github Actions CI
 
 ---
 
+## Zulu Prime
+Full JDK Updates of available history for Zulu Prime Matrix status:
+
+[![Java CI8](https://github.com/foojayio/discoTestingMatrix/workflows/Java8_Zulu/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+[![Java CI11](https://github.com/foojayio/discoTestingMatrix/workflows/Java11_Zulu_Prime_/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+[![Java CI13](https://github.com/foojayio/discoTestingMatrix/workflows/Java13_Zulu/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+[![Java CI15](https://github.com/foojayio/discoTestingMatrix/workflows/Java15_Zulu/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+
+---
+
 ## Zulu 
 Full JDK Updates of available history for Zulu Matrix status:
 
@@ -118,6 +128,11 @@ Full JDK Updates of available history for OJDK Build Matrix status:
 
 [![Java CI8](https://github.com/foojayio/discoTestingMatrix/workflows/Java8_OJDK_Build/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 [![Java CI11](https://github.com/foojayio/discoTestingMatrix/workflows/Java11_OJDK_Build/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+[![Java CI12](https://github.com/foojayio/discoTestingMatrix/workflows/Java12_OJDK_Build/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+[![Java CI13](https://github.com/foojayio/discoTestingMatrix/workflows/Java13_OJDK_Build/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+[![Java CI14](https://github.com/foojayio/discoTestingMatrix/workflows/Java14_OJDK_Build/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+[![Java CI15](https://github.com/foojayio/discoTestingMatrix/workflows/Java15_OJDK_Build/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+[![Java CI17](https://github.com/foojayio/discoTestingMatrix/workflows/Java17_OJDK_Build/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 
 ---
 
@@ -153,11 +168,21 @@ Full JDK Updates of available history for Kona Matrix status:
 
 ---
 
+## Jetbrains
+Full JDK Updates of available history for Jetbrains Matrix status:
+
+[![Java CI11](https://github.com/foojayio/discoTestingMatrix/workflows/Java11_Jetbrains/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+[![Java CI17](https://github.com/foojayio/discoTestingMatrix/workflows/Java17_Jetbrains/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+
+---
+
+
 ## Dragonwell
 Full JDK Updates of available history for Dragonwell Matrix status:
 
 [![Java CI8](https://github.com/foojayio/discoTestingMatrix/workflows/Java8_Dragonwell/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 [![Java CI11](https://github.com/foojayio/discoTestingMatrix/workflows/Java11_Dragonwell/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+[![Java CI17](https://github.com/foojayio/discoTestingMatrix/workflows/Java17_Dragonwell/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 
 ---
 
