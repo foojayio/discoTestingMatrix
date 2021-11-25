@@ -7,10 +7,10 @@ Used to verify jdk tests on various distros and versions using Github Actions CI
 ## Zulu Prime
 Full JDK Updates of available history for Zulu Prime Matrix status:
 
-[![Java CI8](https://github.com/foojayio/discoTestingMatrix/workflows/Java8_Zulu/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+[![Java CI8](https://github.com/foojayio/discoTestingMatrix/workflows/Java8_Zulu_Prime_/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 [![Java CI11](https://github.com/foojayio/discoTestingMatrix/workflows/Java11_Zulu_Prime_/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
-[![Java CI13](https://github.com/foojayio/discoTestingMatrix/workflows/Java13_Zulu/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
-[![Java CI15](https://github.com/foojayio/discoTestingMatrix/workflows/Java15_Zulu/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+[![Java CI13](https://github.com/foojayio/discoTestingMatrix/workflows/Java13_Zulu_Prime_/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+[![Java CI15](https://github.com/foojayio/discoTestingMatrix/workflows/Java15_Zulu_Prime_/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 
 ---
 
