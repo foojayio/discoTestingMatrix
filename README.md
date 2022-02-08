@@ -165,6 +165,7 @@ Full JDK Updates of available history for Kona Matrix status:
 
 [![Java CI8](https://github.com/foojayio/discoTestingMatrix/workflows/Java8_Kona/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 [![Java CI11](https://github.com/foojayio/discoTestingMatrix/workflows/Java11_Kona/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+[![Java CI17](https://github.com/foojayio/discoTestingMatrix/workflows/Java17_Kona/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 
 ---
 
@@ -202,6 +203,7 @@ Full JDK Updates of available history for Bisheng Matrix status:
 
 [![Java CI8](https://github.com/foojayio/discoTestingMatrix/workflows/Java8_Bisheng/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 [![Java CI11](https://github.com/foojayio/discoTestingMatrix/workflows/Java11_Bisheng/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+[![Java CI17](https://github.com/foojayio/discoTestingMatrix/workflows/Java17_Bisheng/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 
 ---
 
