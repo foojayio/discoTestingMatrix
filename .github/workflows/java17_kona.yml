@@ -15,7 +15,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        update: [1]
+        update: [0]
       fail-fast: false
       max-parallel: 4
     name: 17.0.${{ matrix.update }}, ${{ matrix.os }}
