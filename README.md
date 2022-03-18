@@ -11,6 +11,7 @@ Full JDK Updates of available history for Zulu Prime Matrix status:
 [![Java CI11](https://github.com/foojayio/discoTestingMatrix/workflows/Java11_Zulu_Prime/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 [![Java CI13](https://github.com/foojayio/discoTestingMatrix/workflows/Java13_Zulu_Prime/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 [![Java CI15](https://github.com/foojayio/discoTestingMatrix/workflows/Java15_Zulu_Prime/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+[![Java CI17](https://github.com/foojayio/discoTestingMatrix/workflows/Java17_Zulu_Prime/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 
 ---
 
