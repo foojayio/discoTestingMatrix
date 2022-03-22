@@ -61,6 +61,7 @@ Full JDK Updates of available history for Semeru Matrix status:
 [![Java CI8](https://github.com/foojayio/discoTestingMatrix/workflows/Java8_Semeru/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 [![Java CI11](https://github.com/foojayio/discoTestingMatrix/workflows/Java11_Semeru/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 [![Java CI16](https://github.com/foojayio/discoTestingMatrix/workflows/Java16_Semeru/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+[![Java CI17](https://github.com/foojayio/discoTestingMatrix/workflows/Java17_Semeru/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 
 ---
 
@@ -68,6 +69,7 @@ Full JDK Updates of available history for Semeru Matrix status:
 Full JDK Updates of available history for Semeru Certified Matrix status:
 
 [![Java CI11](https://github.com/foojayio/discoTestingMatrix/workflows/Java11_SemeruCertified/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+[![Java CI17](https://github.com/foojayio/discoTestingMatrix/workflows/Java17_SemeruCertified/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 
 ---
 
