@@ -205,7 +205,6 @@ Full JDK Updates of available history for Corretto Matrix status:
 [![Java CI15](https://github.com/foojayio/discoTestingMatrix/workflows/Java15_Corretto/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 [![Java CI16](https://github.com/foojayio/discoTestingMatrix/workflows/Java16_Corretto/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 [![Java CI17](https://github.com/foojayio/discoTestingMatrix/workflows/Java17_Corretto/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
-##[![Java CI18](https://github.com/foojayio/discoTestingMatrix/workflows/Java18_Corretto/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 
 ---
 
