@@ -55,6 +55,7 @@ Full JDK Updates of available history for Temurin Matrix status:
 [![Java CI17](https://github.com/foojayio/discoTestingMatrix/workflows/Java17_Temurin/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 
 EA JDK Matrix status:
+
 [![Java CI19](https://github.com/foojayio/discoTestingMatrix/workflows/Java19_Temurin/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 
 ---
