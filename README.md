@@ -30,10 +30,11 @@ Full JDK Updates of available history for Zulu Matrix status:
 [![Java CI15](https://github.com/foojayio/discoTestingMatrix/workflows/Java15_Zulu/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 [![Java CI16](https://github.com/foojayio/discoTestingMatrix/workflows/Java16_Zulu/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 [![Java CI17](https://github.com/foojayio/discoTestingMatrix/workflows/Java17_Zulu/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+[![Java CI18](https://github.com/foojayio/discoTestingMatrix/workflows/Java18_Zulu/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 
 EA JDK Matrix status:
 
-[![Java CI18](https://github.com/foojayio/discoTestingMatrix/workflows/Java18_Zulu/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+[![Java CI19](https://github.com/foojayio/discoTestingMatrix/workflows/Java19_Zulu/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 
 ---
 
@@ -52,6 +53,9 @@ Full JDK Updates of available history for Temurin Matrix status:
 [![Java CI11](https://github.com/foojayio/discoTestingMatrix/workflows/Java11_Temurin/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 [![Java CI16](https://github.com/foojayio/discoTestingMatrix/workflows/Java16_Temurin/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 [![Java CI17](https://github.com/foojayio/discoTestingMatrix/workflows/Java17_Temurin/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+
+EA JDK Matrix status:
+[![Java CI19](https://github.com/foojayio/discoTestingMatrix/workflows/Java19_Temurin/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 
 ---
 
@@ -85,10 +89,11 @@ Full JDK Updates of available history for SAP Machine Matrix status:
 [![Java CI15](https://github.com/foojayio/discoTestingMatrix/workflows/Java15_SAP_Machine/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 [![Java CI16](https://github.com/foojayio/discoTestingMatrix/workflows/Java16_SAP_Machine/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 [![Java CI17](https://github.com/foojayio/discoTestingMatrix/workflows/Java17_SAP_Machine/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+[![Java CI18](https://github.com/foojayio/discoTestingMatrix/workflows/Java18_SAP_Machine/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 
 EA JDK Matrix status:
 
-[![Java CI18](https://github.com/foojayio/discoTestingMatrix/workflows/Java18_SAP_Machine/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+[![Java CI19](https://github.com/foojayio/discoTestingMatrix/workflows/Java19_SAP_Machine/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 
 ---
 
@@ -104,10 +109,11 @@ Full JDK Updates of available history for Oracle OpenJDK Matrix status:
 [![Java CI15](https://github.com/foojayio/discoTestingMatrix/workflows/Java15_Oracle_OpenJDK/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 [![Java CI16](https://github.com/foojayio/discoTestingMatrix/workflows/Java16_Oracle_OpenJDK/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 [![Java CI17](https://github.com/foojayio/discoTestingMatrix/workflows/Java17_Oracle_OpenJDK/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+[![Java CI18](https://github.com/foojayio/discoTestingMatrix/workflows/Java18_Oracle_OpenJDK/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 
 EA JDK Matrix status:
 
-[![Java CI18](https://github.com/foojayio/discoTestingMatrix/workflows/Java18_Oracle_OpenJDK/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+[![Java CI19](https://github.com/foojayio/discoTestingMatrix/workflows/Java19_Oracle_OpenJDK/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 
 ---
 

@@ -1,33 +1,30 @@
-name: Java18_SAP_Machine
+name: Java19_Temurin
 
 on:
   push:
     paths:
-      - '*/*/java18_sapmachine.yml'
+      - '*/*/java19_temurin.yml'
   schedule:
     # * is a special character in YAML so you have to quote this string
     - cron:  '5 */8 * * *'
-      
 jobs:
-  java18:
+  java19:
     # internal comment counter: 103
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-        update: [18]
-        package: [jdk, jre]
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        update: [19-ea]
       fail-fast: false
       max-parallel: 4
-    name: JDK ${{ matrix.update }}, ${{ matrix.package }}, ${{ matrix.os }}
+    name: JDK ${{ matrix.update }}, ${{ matrix.os }}
 
     steps:
     - uses: actions/checkout@v1
-    - name: Set up JDK 18 SAP_Machine
+    - name: Set up JDK 19 Temurin
       uses: foojayio/setup-java@discoTestingMatrix
       with:
-        java-package: ${{ matrix.package }}
         java-version: ${{ matrix.update }}
-        distro: sap_machine
+        distro: temurin
     - name: java -version
       run: java -version
