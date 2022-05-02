@@ -1,0 +1,32 @@
+name: Java11_Jetbrains
+
+on:
+  push:
+    paths:
+      - '*/*/java11_jetbrains.yml'
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '15 */3 * * *'
+jobs:
+  java11:
+    # internal comment counter: 100
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        update: [x, 13, 12, 11, 10, 8, 7, 6, 5]
+        package: [jdk, jre]
+      fail-fast: false
+      max-parallel: 4
+    name: ${{ matrix.package }} 11.0.${{ matrix.update }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up ${{ matrix.package }} 11 Jetbrains
+      uses: foojayio/setup-java@discoTestingMatrix
+      with:
+        java-package: ${{ matrix.package }}
+        java-version: 11.0.${{ matrix.update }}
+        distro: zulu
+    - name: java -version
+      run: java -version

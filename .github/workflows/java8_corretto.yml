@@ -14,7 +14,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-18.04, windows-2016, macos-latest]
+        os: [ubuntu-latest, windows-latest, macos-latest]
         update: [x, 282, 275, 272, 265, 262, 252, 242, 232, 222, 212, 202, 201, 192, 181, 172, 163, 162, 152, 144, 131, 121, 112, 102, 101, 92, 91, 72, 71]
         exclude:
           - {update: 71}
@@ -37,10 +37,10 @@ jobs:
           - {update: 202}
           - {update: 212}
           - {update: x}
-          - {os: ubuntu-18.04, update: 262}
-          - {os: ubuntu-18.04, update: 265}
-          - {os: ubuntu-18.04, update: 275}
-          - {os: ubuntu-18.04, update: 282}
+          - {os: ubuntu-latest, update: 262}
+          - {os: ubuntu-latest, update: 265}
+          - {os: ubuntu-latest, update: 275}
+          - {os: ubuntu-latest, update: 282}
       fail-fast: false
       max-parallel: 4
     name: JDK 8.0.${{ matrix.update }}, ${{ matrix.os }}

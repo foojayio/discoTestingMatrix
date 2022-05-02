@@ -1,0 +1,32 @@
+name: Java13_Zulu_Prime
+
+on:
+  push:
+    paths:
+      - '*/*/java13_zulu_prime.yml'
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '15 */3 * * *'
+jobs:
+  java13:
+    # internal comment counter: 100
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        update: [x, 8]
+        package: [jdk]
+      fail-fast: false
+      max-parallel: 4
+    name: ${{ matrix.package }} 13.0.${{ matrix.update }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up JDK 13 Zulu Prime
+      uses: foojayio/setup-java@discoTestingMatrix
+      with:
+        java-package: ${{ matrix.package }}
+        java-version: 13.0.${{ matrix.update }}
+        distro: zulu_prime
+    - name: java -version
+      run: java -version

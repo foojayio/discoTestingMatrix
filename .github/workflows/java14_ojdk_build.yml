@@ -1,0 +1,32 @@
+name: Java14_OJDK_Build
+
+on:
+  push:
+    paths:
+      - '*/*/java14_ojdk_build.yml'
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '15 */3 * * *'
+jobs:
+  java14:
+    # internal comment counter: 100
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest]
+        update: [x, 2, 1]
+        package: [jdk]
+      fail-fast: false
+      max-parallel: 4
+    name: ${{ matrix.package }} 14.0.${{ matrix.update }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up JDK 14 OJDK Build
+      uses: foojayio/setup-java@discoTestingMatrix
+      with:
+        java-package: ${{ matrix.package }}
+        java-version: 14.0.${{ matrix.update }}
+        distro: ojdk_build
+    - name: java -version
+      run: java -version

@@ -10,7 +10,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-18.04, windows-2016]
+        os: [ubuntu-latest, windows-latest]
         update: [x, 77]
       fail-fast: false
       max-parallel: 4

@@ -14,7 +14,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-18.04, windows-2016]
+        os: [ubuntu-latest, windows-latest]
         update: [x, 282, 275, 272, 265, 262, 252, 242, 232, 222, 212, 202, 201, 192, 181, 172, 163, 162, 152, 144, 131, 121, 112, 102, 101, 92, 91, 72, 71]
         exclude:
           - {update: 71}
@@ -40,7 +40,7 @@ jobs:
           - {update: 232}
           - {update: 242}
           - {update: 252}
-          - {os: windows-2016, update: 262}
+          - {os: windows-latest, update: 262}
           - {update: 265}
           - {update: x}
       fail-fast: false

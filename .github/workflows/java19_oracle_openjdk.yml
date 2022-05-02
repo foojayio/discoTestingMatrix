@@ -1,0 +1,31 @@
+name: Java19_Oracle_OpenJDK
+
+on:
+  push:
+    paths:
+      - '*/*/java19_oracle_openjdk.yml'
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '5 */8 * * *'
+      
+jobs:
+  java19:
+    # internal comment counter: 103
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        update: [19.0.0-ea, 19.0.0-ea.14, 19-ea]
+      fail-fast: false
+      max-parallel: 4
+    name: JDK ${{ matrix.update }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up JDK 19 Oracle_OpenJDK
+      uses: foojayio/setup-java@discoTestingMatrix
+      with:
+        java-version: ${{ matrix.update }}
+        distro: oracle_openjdk
+    - name: java -version
+      run: java -version

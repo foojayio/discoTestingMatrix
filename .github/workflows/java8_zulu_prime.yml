@@ -1,0 +1,32 @@
+name: Java8_Zulu_Prime
+
+on:
+  push:
+    paths:
+      - '*/*/java8_zulu_prime.yml'
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '15 */3 * * *'
+jobs:
+  java8:
+    # internal comment counter: 100
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        update: [x, 302]
+        package: [jdk]
+      fail-fast: false
+      max-parallel: 4
+    name: ${{ matrix.package }} 8.0.${{ matrix.update }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up JDK 8 Zulu Prime
+      uses: foojayio/setup-java@discoTestingMatrix
+      with:
+        java-package: ${{ matrix.package }}
+        java-version: 8.0.${{ matrix.update }}
+        distro: zulu_prime
+    - name: java -version
+      run: java -version

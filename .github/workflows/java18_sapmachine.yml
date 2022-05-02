@@ -14,8 +14,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-18.04, windows-2016, macos-latest]
-        update: [18.0.0-ea, 18.0.0-ea.1, 18-ea]
+        os: [ubuntu-latest, windows-latest]
+        update: [18]
         package: [jdk, jre]
       fail-fast: false
       max-parallel: 4

@@ -11,7 +11,7 @@ on:
 jobs:
   java10:
     # internal comment counter: 100
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         update: [x, 2, 1, 0]

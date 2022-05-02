@@ -1,0 +1,33 @@
+name: Java17_Jetbrains
+
+on:
+  push:
+    paths:
+      - '*/*/java17_jetbrains.yml'
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '45 */3 * * *'
+jobs:
+  java17-jdk:
+    # internal comment counter: 100
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        update: [x, 1, 0]
+        package: [jdk]
+      fail-fast: false
+      max-parallel: 4
+    name: ${{ matrix.package }} 17.0.${{ matrix.update }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up ${{ matrix.package }} 17 Jetbrains
+      uses: foojayio/setup-java@discoTestingMatrix
+      with:
+        java-package: ${{ matrix.package }}
+        java-version: 17.0.${{ matrix.update }}
+        distro: jetbrains
+    - name: java -version
+      run: java -version
+      

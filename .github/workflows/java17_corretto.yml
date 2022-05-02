@@ -7,26 +7,26 @@ on:
   schedule:
     # * is a special character in YAML so you have to quote this string
     - cron:  '5 */8 * * *'
-      
 jobs:
-  java16:
+  java17:
     # internal comment counter: 103
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-18.04, windows-2016, macos-latest]
-        update: [17]
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        update: [1, 0]
+        package: [jdk]
       fail-fast: false
       max-parallel: 4
-    name: ${{ matrix.update }}, ${{ matrix.os }}
+    name: ${{ matrix.package }} 17.0.${{ matrix.update }}, ${{ matrix.os }}
 
     steps:
     - uses: actions/checkout@v1
     - name: Set up JDK 17 Corretto
       uses: foojayio/setup-java@discoTestingMatrix
       with:
-        java-package: jdk
-        java-version: ${{ matrix.update }}
+        java-package: ${{ matrix.package }}
+        java-version: 17.0.${{ matrix.update }}
         distro: corretto
     - name: java -version
       run: java -version
