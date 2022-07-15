@@ -1,0 +1,31 @@
+name: Java20_Oracle_OpenJDK
+
+on:
+  push:
+    paths:
+      - '*/*/java20_oracle_openjdk.yml'
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '5 */8 * * *'
+      
+jobs:
+  java20:
+    # internal comment counter: 103
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        update: [20.0.0-ea, 20.0.0-ea.1, 20.0.0-ea.2, 20.0.0-ea.3, 20.0.0-ea.4, 20.0.0-ea.5, 20-ea]
+      fail-fast: false
+      max-parallel: 4
+    name: JDK ${{ matrix.update }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up JDK 20 Oracle_OpenJDK
+      uses: foojayio/setup-java@discoTestingMatrix
+      with:
+        java-version: ${{ matrix.update }}
+        distro: oracle_openjdk
+    - name: java -version
+      run: java -version

@@ -95,6 +95,7 @@ Full JDK Updates of available history for SAP Machine Matrix status:
 EA JDK Matrix status:
 
 [![Java CI19](https://github.com/foojayio/discoTestingMatrix/workflows/Java19_SAP_Machine/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+[![Java CI20](https://github.com/foojayio/discoTestingMatrix/workflows/Java20_SAP_Machine/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 
 ---
 
@@ -115,6 +116,7 @@ Full JDK Updates of available history for Oracle OpenJDK Matrix status:
 EA JDK Matrix status:
 
 [![Java CI19](https://github.com/foojayio/discoTestingMatrix/workflows/Java19_Oracle_OpenJDK/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+[![Java CI20](https://github.com/foojayio/discoTestingMatrix/workflows/Java20_Oracle_OpenJDK/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 
 ---
 
