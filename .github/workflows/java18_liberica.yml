@@ -1,0 +1,32 @@
+name: Java18_Liberica
+
+on:
+  push:
+    paths:
+      - '*/*/java18_liberica.yml'
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '5 */3 * * *'    
+jobs:
+  java18:
+    # internal comment counter: 103
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        update: [1, 0]
+        package: [jdk, jre]
+      fail-fast: false
+      max-parallel: 4
+    name: ${{ matrix.package }} 18.0.${{ matrix.update }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up ${{ matrix.package }} 18 Liberica
+      uses: foojayio/setup-java@discoTestingMatrix
+      with:
+        java-package: ${{ matrix.package }}
+        java-version: 18.0.${{ matrix.update }}
+        distro: liberica
+    - name: java -version
+      run: java -version
