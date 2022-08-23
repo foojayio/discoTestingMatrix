@@ -35,6 +35,7 @@ Full JDK Updates of available history for Zulu Matrix status:
 EA JDK Matrix status:
 
 [![Java CI19](https://github.com/foojayio/discoTestingMatrix/workflows/Java19_Zulu/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+[![Java CI20](https://github.com/foojayio/discoTestingMatrix/workflows/Java20_Zulu/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 
 ---
 
@@ -53,6 +54,7 @@ Full JDK Updates of available history for Temurin Matrix status:
 [![Java CI11](https://github.com/foojayio/discoTestingMatrix/workflows/Java11_Temurin/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 [![Java CI16](https://github.com/foojayio/discoTestingMatrix/workflows/Java16_Temurin/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 [![Java CI17](https://github.com/foojayio/discoTestingMatrix/workflows/Java17_Temurin/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+[![Java CI18](https://github.com/foojayio/discoTestingMatrix/workflows/Java18_Temurin/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 
 EA JDK Matrix status:
 
@@ -124,6 +126,7 @@ EA JDK Matrix status:
 Full JDK Updates of available history for Oracle Matrix status:
 
 [![Java CI17](https://github.com/foojayio/discoTestingMatrix/workflows/Java17_Oracle/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+[![Java CI18](https://github.com/foojayio/discoTestingMatrix/workflows/Java18_Oracle/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 
 ---
 
@@ -169,6 +172,7 @@ Full JDK Updates of available history for Liberica Matrix status:
 [![Java CI15](https://github.com/foojayio/discoTestingMatrix/workflows/Java15_Liberica/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 [![Java CI16](https://github.com/foojayio/discoTestingMatrix/workflows/Java16_Liberica/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 [![Java CI17](https://github.com/foojayio/discoTestingMatrix/workflows/Java17_Liberica/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+[![Java CI18](https://github.com/foojayio/discoTestingMatrix/workflows/Java18_Liberica/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 
 ---
 
@@ -207,6 +211,7 @@ Full JDK Updates of available history for Corretto Matrix status:
 [![Java CI15](https://github.com/foojayio/discoTestingMatrix/workflows/Java15_Corretto/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 [![Java CI16](https://github.com/foojayio/discoTestingMatrix/workflows/Java16_Corretto/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 [![Java CI17](https://github.com/foojayio/discoTestingMatrix/workflows/Java17_Corretto/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
+[![Java CI18](https://github.com/foojayio/discoTestingMatrix/workflows/Java18_Corretto/badge.svg)](https://github.com/foojayio/discoTestingMatrix/actions)
 
 ---
 
